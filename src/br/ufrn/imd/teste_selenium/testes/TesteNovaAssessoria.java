@@ -1,5 +1,6 @@
 package br.ufrn.imd.teste_selenium.testes;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.util.concurrent.TimeUnit;
@@ -55,13 +56,8 @@ public class TesteNovaAssessoria {
 		driver.findElement(By.id("horaFinal_input")).clear();
 		driver.findElement(By.id("horaFinal_input")).sendKeys("07:59");
 		driver.findElement(By.xpath("//form[@id='j_idt44']/div[3]")).click();
-		driver.findElement(By.id("btnCadastrar")).click();
-		driver.findElement(By.cssSelector("span.ui-icon.ui-icon-close")).click();
-		driver.findElement(By.cssSelector(
-				"#messages2 > div.ui-messages-info.ui-corner-all > a.ui-messages-close > span.ui-icon.ui-icon-close"))
-				.click();
-		driver.findElement(By.name("j_idt79")).click();
-		driver.findElement(By.cssSelector("span.ui-icon.ui-icon-close")).click();
+		driver.findElement(By.id("btnCadastrar")).click();assertEquals("Operação realizada com sucesso!",
+				driver.findElement(By.cssSelector("ui-messages-info-summary")).getText());
 	}
 
 	@After

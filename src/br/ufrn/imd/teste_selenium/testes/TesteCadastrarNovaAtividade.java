@@ -1,5 +1,6 @@
 package br.ufrn.imd.teste_selenium.testes;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.util.concurrent.TimeUnit;
@@ -43,7 +44,8 @@ public class TesteCadastrarNovaAtividade {
 		driver.findElement(By.xpath("//div[@id='incubadoraIsResponsavel']/div[2]/span")).click();
 		new Select(driver.findElement(By.id("tipoAssessoria"))).selectByVisibleText("Capital");
 		driver.findElement(By.id("btnCadastrar")).click();
-		driver.findElement(By.cssSelector("span.ui-icon.ui-icon-close")).click();
+		assertEquals("Operação realizada com sucesso!",
+				driver.findElement(By.cssSelector("ui-messages-info-summary")).getText());
 	}
 
 	@After

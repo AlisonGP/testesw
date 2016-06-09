@@ -22,11 +22,11 @@ public class TesteCadastroNovaEmpresa {
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
 		baseUrl = "http://testes.imd.ufrn.br/";
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(180, TimeUnit.SECONDS);
 	}
 
 	@Test
-	public void testE() throws Exception {
+	public void testCadastrarNovaEmpresa() throws Exception {
 		driver.get(baseUrl + "/inova/");
 		/** Login */
 		driver.findElement(By.cssSelector("a > div > img")).click();
